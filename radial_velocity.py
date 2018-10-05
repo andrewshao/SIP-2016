@@ -1,3 +1,4 @@
+#Andrew, 2016
 #Plots radial velocities of blue and red orphan GCs
 
 #all the necessary imports
