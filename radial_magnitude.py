@@ -1,6 +1,6 @@
 #Andrew Shao, 2016
 #Plots radial distribution vs apparent i magnitude
-#all the necessary imports
+
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt 
@@ -56,7 +56,6 @@ for line in blue:
     #adds imag data to the array from blue GC catalog's column 5
     i_b.append(float(ds[5]))
 
-#closes the catalog
 blue.close()
 
 #open red GCs catalog
@@ -83,7 +82,6 @@ for line in red:
     #adds imag data to the array from red GC catalog's column 5
     i_r.append(float(ds[5]))
 
-#closes the catalog
 red.close()
 
 #open orphans catalog
@@ -118,7 +116,6 @@ for line in data:
     #adds imag data to the array from orphans catalog column 9
     i_orphan.append(float(ds[9]))
 
-#closes the catalog
 data.close()
  
 #for loop to calculate distance from each blue GC to center of M87 in arcminutes
@@ -141,7 +138,7 @@ for i in range(0, 45):
 
 #pdb.set_trace()
     
-#to make the plot
+
 plt.clf()
 fig = plt.figure()  
 
@@ -154,25 +151,19 @@ plt.plot(R_r, i_r, 'r*', label = 'Red GCs', markersize = '4')
 #plots orphans as yellow triangles, x = distance from M87
 plt.plot(R_orphan, i_orphan, 'y^', label = 'Orphan GCs', markersize = '9')
 
-#title and labels for x and y axis
+
 plt.xlabel(r'R$_{av}$ (arcmin)',fontsize = '15') #average radius from M87 in arcminutes
 plt.ylabel(r'i$_{o}$ (mag)',fontsize = '15')
 #plt.title(, fontsize = '20') #average radius from M87 in kiloparsecs 
 
-#makes the x axis a log scale
 plt.xscale('log')
 
-
-#invert y axis
 plt.gca().invert_yaxis()
  
-#creates legend
 plt.legend(loc = 'lower left', numpoints = 1)
 plt.title(r'Distribution of GCs in Projected Distance vs. Apparent i$_{0}$ Magnitude Space', fontsize = '15')
-#saves and shows plot
 plt.tight_layout
 plt.savefig('/Users/Andrew/Dropbox/VDGC_students/plots/Fig_5.png')
 plt.show()
     
-#to stop running the program
 pdb.set_trace()
